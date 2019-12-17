@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="stylemobile.css">
+    </head>
+    <body>
+        <div class= "main-body">
+            <div id = "header-space">
+                <div id="logo-container">
+                    <a href="index.html"><img src = "logo.png"></a>
+                </div>
+                <a href="tela1mobile.html">
+                <div id="backbutton-container">
+                    <p>Voltar</p>
+                </div></a>
+            </div>
+            <div id="main-container">
+                <div id = "info-container">
+                    <div id="flag-container">
+                        <img src="" alt="">
+                    </div>
+                    <p>Nome: <span id = "name"></span></p>
+                    <p>Capital: <span id = "capital"></span></p>
+                    <p>Região: <span id = "region"></span></p>
+                    <p>Sub-Região: <span id = "subregion"></span></p>
+                    <p>População: <span id = "population"></span></p>
+                    <p>Línguas: <span id = "languages"></span></p>
+                    <p>Países Vizinhos: <span id = "borders"></span></p>
+                    <form id = "borderFlags-container" action="tela2mobile.html" method = "GET">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            const resultsList = document.getElementById('results')
+            new URLSearchParams(window.location.search).forEach((value)=>
+            fetch(`https://restcountries.eu/rest/v2/alpha/${value}`)
+            .then(res => res.json())
+            .then(data => initialize(data))
+            .catch(err => console.log("Error:",err)))
+            function initialize(countryData){
+                document.getElementById("capital").innerHTML = countryData.capital;
+                document.getElementById("name").innerHTML = countryData.name;
+                document.getElementById("region").innerHTML = countryData.region;
+                document.getElementById("subregion").innerHTML = countryData.subregion;
+                document.getElementById("population").innerHTML = countryData.population.toLocaleString();
+                document.getElementById("languages").innerHTML = countryData.languages.filter(lang => lang.nativeName).map(lang => lang.nativeName).join(", ");
+                countryData.borders.forEach((border)=>
+                    fetch(`https://restcountries.eu/rest/v2/alpha/${border}`)
+                    .then(res => res.json())
+                    .then(data => borderCountries(data))
+                    .catch(err => console.log("Error:",err)));
+                document.querySelector("#flag-container img").src = countryData.flag;
+                document.querySelector("#flag-container img").alt = `Flag of ${countryData.name}`;
+                let paisesVizinhos = `<tr><th>Países Vizinhos:</th></tr>`;
+            }
+
+            function borderCountries(cBNData){
+                    cBR = cBNData;
+                    let flagscBR = "";
+                    flagscBR+=`<button type="submit" name="flag" value="${cBR.alpha3Code}"><img src="${cBR.flag}" alt="${cBR.name}"></button>`;        
+                    document.getElementById("borderFlags-container").innerHTML += flagscBR;
+            }
+        </script>    
+    </body>
+</html>

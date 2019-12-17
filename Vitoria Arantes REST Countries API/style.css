@@ -1,0 +1,127 @@
+#header-space{
+    /* Header */
+
+
+    position: absolute;
+    width: 1200px;
+    height: 96px;
+    left: 0px;
+    top: 0px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#logo-container{
+    position: absolute;
+    width: 122px;
+    height: 64px;
+    left: 22px;
+    top: 16px;
+}
+#logo-container img{
+    width: 100%;
+    height: 100%;
+}
+
+#searchbar-container{
+    position: absolute;
+    width: 1164px;
+    height: 40px;
+    left: 22px;
+    top: 120px;
+    
+}
+#countriesflags-container{
+    position: absolute;
+    left: 22px;
+    top: 200px;
+    width: 1164px;
+    height: 776px;
+}
+#countriesflags-container button{
+    width: 25%;
+    height: 25%;
+    padding: 0 2px;
+    border: none;
+    background: none;
+
+}
+#countriesflags-container img{
+    width: 100%;
+    height: 100%;
+}
+#borderFlags-container{
+    position: absolute;
+    left: 0px;
+    top: 500px;
+    width: 1164px;
+    height: 776px;
+    align-self: center;
+}
+#borderFlags-container button{
+    position: center;
+    width: 25%;
+    height: 25%;
+    padding: 0 2px;
+    border: none;
+    background: none;
+}
+#borderFlags-container img{
+    width: 100%;
+    height: 100%;
+}
+#main-body{
+    position: relative;
+    width: 1164px;
+    height: 1014px;
+}
+#flag-container{
+    position: relative;
+    width: 360px;
+    height: 222px;
+    left: 402px;
+    align-self: center;
+    top: 0px;
+}
+#flag-container img{
+    align-self: center;
+    width: 100%;
+    height: 100%;
+}
+#info-container{
+    position: absolute;
+    width: 1164px;
+    height: 776px;
+    left: 22px;
+    top: 120px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+}
+#info-container p{
+    padding: 0 10px;
+}
+#backbutton-container{
+    position: absolute;
+    width: 120px;
+    height: 31px;
+    left: 1000px;
+    top: 33px;
+
+    text-align: center;
+    text-align: middle;
+
+    background: #01A39D;
+}
+#backbutton-container p{
+    position: relative;
+    width: 120px;
+    height: 31px;
+    left: 0px;
+    top: -10px;
+
+}
